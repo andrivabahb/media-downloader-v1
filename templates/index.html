@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Media Downloader - Cepat & Mudah{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    body { background-color: #f8f9fa; padding: 40px 0; }
+    .container { max-width: 700px; }
+    .header { text-align: center; margin-bottom: 40px; }
+    .form-control { margin-bottom: 15px; }
+    .btn-primary { width: 100%; }
+    .alert { margin-top: 20px; }
+    .info { font-size: 0.9em; color: #6c757d; margin-top: 30px; text-align: center; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h1 class="display-4">Media Downloader</h1>
+        <p class="lead">Download video atau audio dari YouTube, TikTok, Instagram, Facebook, X (Twitter), dan banyak lagi. Gratis, cepat, dan aman!</p>
+    </div>
+    
+    <form method="post">
+        <input type="text" name="url" class="form-control form-control-lg" placeholder="Paste URL media di sini (contoh: https://www.youtube.com/watch?v=example)" required>
+        
+        <div class="mb-3">
+            <label class="form-label">Pilih Format:</label>
+            <select name="format" class="form-select">
+                <option value="video">Video (MP4)</option>
+                <option value="audio">Audio (MP3)</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-lg">Download Sekarang</button>
+    </form>
+    
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endif %}
+    
+    <div class="info">
+        <p><strong>✅ Platform Terbaik:</strong> YouTube, TikTok (publik), Facebook, Twitter/X, Vimeo, Dailymotion</p>
+        <p><strong>⚠️ Catatan Instagram:</strong> Instagram memerlukan login dan tidak bisa didownload melalui web app ini</p>
+        <p><strong>💡 Tips:</strong> Pastikan URL mengarah ke konten publik, bukan private/pribadi</p>
+        <p style="margin-top: 15px; font-size: 0.85em;">development by ARDIANCHU</p>
+    </div>
+</div>
+{% endblock %}
